@@ -158,3 +158,49 @@ insert into usuario(usNombre,usContrasenia,usCorreo,usTipoUS) values
 call SP_PRE_RESERVACION_REGISTRO ();
 call SP_preReservacion_asignarAgente();
 call SP_insertarReservacion();
+
+select * from pre_reservacion;
+delete from pre_reservacion 
+where prNum between 1 and 12;
+
+INSERT INTO `pre_reservacion` (`prNum`, `prFechaRegistro`, `prFechaInic`, `prFechaFin`, `prStatus`, `prNotas`, `FK_Lugar`, `FK_Cliente`, `FK_Agente`) VALUES
+(1, '2020-12-01 18:56:33', '2020-12-12', '2020-12-15', 'Rechazada', 'Lo sentimos, el salón se encuentra en reparación', 1, 9, 'JEU0VZQ'),
+(2, '2020-12-01 18:56:53', '2020-12-14', '2020-12-16', 'Autorizada', 'Todo en orden', 4, 9, 'JEU0VZQ'),
+(3, '2020-12-01 18:57:13', '2020-12-12', '2020-12-17', 'Rechazada', 'CANCELADA POR EL CLIENTE', 6, 9, 'AAN0LZP'),
+(4, '2020-12-01 19:07:48', '2020-12-20', '2020-12-23', 'Autorizada', 'Acuerdos terminados sin problema alguno.', 1, 1, 'MOI0RZI'),
+(5, '2020-12-01 19:08:29', '2021-02-12', '2021-02-15', 'Autorizada', 'Listo para reservar. ', 4, 1, 'GHT0LTS'),
+(6, '2020-12-01 19:08:49', '2021-05-04', '2021-05-08', 'Autorizada', 'Proceso completado', 2, 1, 'JEU0VZQ'),
+(7, '2020-12-01 19:09:41', '2020-12-12', '2020-12-12', 'Autorizada', 'Preparativos finalizados con éxito.', 3, 2, 'MLE0MZN'),
+(8, '2020-12-01 19:10:33', '2021-02-08', '2021-02-10', 'Autorizada', 'Pago y reservación acordadas con el cliente.', 6, 2, 'GHT0LTS'),
+(9, '2020-12-01 19:10:59', '2021-03-08', '2021-03-15', 'Rechazada', 'Rechazado por mal estado del lugar.', 5, 2, 'PAL0MZT'),
+(10, '2020-12-01 19:11:55', '2021-02-04', '2021-03-05', 'Rechazada', 'Aceptado y acordado con el cliente.', 7, 3, 'JAS0MRA'),
+(11, '2020-12-01 19:12:45', '2021-08-12', '2021-09-15', 'Rechazada', 'Rechazado por inactividad del cliente. ', 3, 4, 'GHT0LTS'),
+(12, '2020-12-01 22:50:37', '2020-12-05', '2020-12-15', 'Rechazada', 'Rechazado por el mal mantenimiento brindado al lugar.', 12, 1, 'JAS0MRA'),
+(13, '2020-12-01 22:57:46', '2021-01-10', '2021-01-20', 'Autorizada', 'Preparativos terminados con éxito. ', 3, 3, 'MOI0RZI'),
+(14, '2020-12-01 22:59:12', '2021-01-15', '2021-01-30', 'Rechazada', 'Inconvenientes con el pago establecido por el Cliente.', 4, 4, 'MLE0MZN'),
+(15, '2020-12-01 23:00:45', '2020-12-25', '2021-01-05', 'Autorizada', 'Preparado y listo para reservar.', 5, 5, 'PAL0MZT'),
+(16, '2020-12-01 23:03:03', '2020-12-25', '2021-01-05', 'Rechazada', 'Rechazado.', 8, 5, 'PAL0MZT'),
+(17, '2020-12-01 23:03:58', '2021-01-30', '2021-02-05', 'Autorizada', 'Todo preparado y listo para empezar!', 11, 5, 'AAN0LZP'),
+(18, '2020-12-01 23:05:47', '2020-02-20', '2020-12-30', 'Autorizada', 'Autorizado y listo para reservar!', 6, 6, 'GHT0LTS'),
+(19, '2020-12-01 23:07:49', '2020-12-25', '2020-12-27', 'Rechazada', 'Contratiempos por causa del mal estado del lugar.', 7, 6, 'MOI0RZI'),
+(20, '2020-12-01 23:31:39', '2021-02-05', '2021-02-10', 'Autorizada', 'Todo preparado y listo para comenzar.', 8, 8, 'MOI0RZI'),
+(21, '2020-12-01 23:32:21', '2020-12-20', '2020-12-25', 'Autorizada', 'Fecha asignada, confirmado.', 9, 8, 'AAN0LZP'),
+(22, '2020-12-01 23:33:58', '2020-12-10', '2020-12-15', 'Autorizada', 'Preparado y listo para reservar!', 10, 10, 'JAS0MRA'),
+(23, '2020-12-01 23:34:48', '2020-12-20', '2020-12-25', 'Autorizada', 'Acuerdo finnalizado. Todo listo!', 12, 10, 'AAN0LZP'),
+(24, '2020-12-01 23:36:26', '2020-12-30', '2021-01-06', 'Rechazada', 'Listo, confirmado para reservar.', 11, 11, 'PAL0MZT');
+
+INSERT INTO `reservacion` (`resNumPR`, `resFecConfirmacion`, `resTotDias`, `resTotPagar`) VALUES
+(2, '2020-12-01 19:30:08', 3, '180183.00'),
+(4, '2020-12-01 23:44:27', 4, '10000.00'),
+(5, '2020-12-01 23:51:48', 4, '240244.00'),
+(6, '2020-12-01 19:30:48', 5, '17500.00'),
+(7, '2020-12-01 23:43:02', 1, '30000.00'),
+(8, '2020-12-01 23:52:10', 3, '60000.00'),
+(13, '2020-12-01 23:45:36', 11, '330000.00'),
+(15, '2020-12-01 23:53:56', 12, '228000.00'),
+(17, '2020-12-01 23:39:43', 7, '21000.00'),
+(18, '2020-12-01 23:52:45', 127, '6300000.00'),
+(20, '2020-12-01 23:47:36', 6, '9000.00'),
+(21, '2020-12-01 23:40:07', 6, '18000.00'),
+(22, '2020-12-01 23:50:05', 6, '16800.00'),
+(23, '2020-12-01 23:41:53', 6, '21000.00');
